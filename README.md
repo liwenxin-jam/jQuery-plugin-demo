@@ -1,4 +1,4 @@
-如今做web开发，jquery几乎是必不可少的，同时jquery插件也是不断的被大家所熟知，以及运用。写插件的方式有两种，下边我会举栗子说明。
+>如今做web开发，jquery几乎是必不可少的，同时jquery插件也是不断的被大家所熟知，以及运用。写插件的方式有两种，下边我会举栗子说明。
 
 - dom结构，后面的例子都以这个结构做演示。
 ```html
@@ -163,7 +163,7 @@ $(".changeFont3").color2({color: 'pink', size: '24px'}).color({color: 'red', siz
 $("*").color({color: 'red', size: '16px'});  //通配符循环
 ```
 
-综上所述个人建议使用方式去拓展jQuery插件，要使用上会方便比较好。如果需要上面栗子源码可以从本人github[jQuery-plugin-demo](https://github.com/liwenxin-jam/jQuery-plugin-demo "jQuery-plugin-demo")上下载。
+- 由此可见，个人建议使用第二种方式去拓展jQuery插件，在使用上会比较好。
 
 - 最后附上jQuery源码extend，目的是实现浅复制或深复制。
 ```js
