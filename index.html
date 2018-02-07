@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script src="jquery-3.1.1.js"></script>
+	<script src="test.js"></script>
+</head>
+<body>
+	<p class="formatFont">Hello World!</p>
+	<p class="changeFont1">Weclome to Javascript!</p>
+	<p class="changeFont2">Weclome to Javascript!</p>
+	<p class="changeFont3">Weclome to Javascript!</p>
+	<script type="text/javascript">
+	    // var i = 100; j = 101;
+	    // var min_v = $.minValue(i, j); // min_v 等于 100
+	    // var max_v = $.maxValue(i, j); // max_v 等于 101 
+	    // console.log('min_v:'+min_v+',max_v:'+max_v);
+
+	    //第一种插件写法调用
+	    $.color($(".formatFont1"), {color: 'red', size: '16px'});
+	    $.color($(".changeFont2"), {color: 'pink', size: '24px'});
+	    //对于链式操作不太友好
+	    $.color($.color($(".changeFont3"), {color: 'pink', size: '24px'}), {color: 'red', size: '16px'});
+
+	    //第二种插件写法调用
+		$(".formatFont").color();  //$(".formatFont").color({}); 也可以
+		$(".changeFont1").color({color: 'red', size: '16px'});
+		$(".changeFont2").color2({color: 'pink', size: '24px'});
+		//调用者覆盖插件暴露的共公方法
+        $.fn.color.format = function (txt) {
+            return "<em>" + txt + "</em>"
+        }
+		$(".changeFont3").color2({color: 'pink', size: '24px'}).color({color: 'red', size: '16px'});
+
+		$("*").color({color: 'red', size: '16px'});  //通配符循环
+	</script>
+</body>
+</html>
